@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Will start a Flask Web Application """
 from models import storage
-from models.state import state
+from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.place import Place
@@ -17,7 +17,7 @@ def close_db(error):
     storage.close()
 
 
-@app.route('0-hbnb/', strict_slashes=False)
+@app.route('/0-hbnb/', strict_slashes=False)
 def hbnb():
     """ HBNB is working """
     all_states = storage.all(State).values()
