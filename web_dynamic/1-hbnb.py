@@ -10,7 +10,7 @@ from os import environ
 from flask import flask, render_template
 import uuid
 app = Flask(__name__)
-
+CORS(app, resources{r"/": {"origins": "0.0.0.0"}})
 
 @app.teardown_appcontext
 def close_db(error):

@@ -21,7 +21,7 @@ def close_db(error):
 def hbnb():
     """ HBNB is working """
     all_states = storage.all(State).values()
-    sorted_states = sorted(states, key=lambda state: state.name)
+    sorted_states = sorted(all_states, key=lambda state: state.name)
 
     states_with_cities = []
 
@@ -34,7 +34,7 @@ def hbnb():
                               key=lambda amenity: amenity.name)
 
     all_places = storage.all(Place).values()
-    sorted_places = sorted(places_list, key=lambda place: place.name)
+    sorted_places = sorted(all_places, key=lambda place: place.name)
 
     return render_template('0-hbnb.html',
                            states=states_with_cities,
@@ -43,6 +43,6 @@ def hbnb():
                            cache_id=uuid.uuid4())
 
 
-if __name__ == 'main':
+if __name__ == '__main__':
     """ Main function """
     app.run(host='0.0.0.0', port=5000)
